@@ -1,17 +1,24 @@
 package com.example.android_please.fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.BaseAdapter
+import android.widget.ListView
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.android_please.R
+import com.example.android_please.adapters.MyCustomAdapter
 
 
-class FirstFragment : Fragment() {
+class FirstFragment(context: Context) : Fragment() {
+
+    var mCon = context
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -19,8 +26,9 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
+        var RootView:View =  inflater.inflate(R.layout.fragment_first, container, false)
+        val listView = RootView.findViewById<ListView>(R.id.main_listview)
+        listView.adapter = MyCustomAdapter(mCon)
+        return RootView
     }
-
-
 }
