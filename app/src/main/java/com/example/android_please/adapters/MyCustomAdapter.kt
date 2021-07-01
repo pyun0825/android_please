@@ -1,23 +1,38 @@
 package com.example.android_please.adapters
 
 import android.content.Context
+import android.content.res.AssetManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import com.example.android_please.R
+import org.json.JSONObject
 
 class MyCustomAdapter(context: Context): BaseAdapter() {
-    private val names = arrayListOf<String>(
-        "Donald Trump", "Steve Jobs", "Tim Cook", "a", "b", "c", "d", "e", "f", "g", "h"
-    )
+    val assetManager = context.resources.assets
+    val inputStream = assetManager.open("phonenumbers.json")
+    val jsonString = inputStream.bufferedReader().use {it.readText()}
+    val jObject = JSONObject(jsonString)
+    val jArray = jObject.getJSONArray("people")
+
+
+    private val names = arrayListOf<String>()
+    private val numbers = arrayListOf<String>()
 
     private val mContext: Context
 
     init {
         mContext = context
+        for(i in 0 until jArray.length()) {
+            val obj = jArray.getJSONObject(i)
+            val name = obj.getString("name")
+            val number = obj.getString("number")
+            names.add(name)
+            numbers.add(number)
+        }
     }
 
     override fun getCount(): Int {
@@ -41,8 +56,12 @@ class MyCustomAdapter(context: Context): BaseAdapter() {
         nameTextView.text = names.get(position)
 
         val positionTextView = rowMain.findViewById<TextView>(R.id.textView2) //동일-position 변수 출력하도록
-        positionTextView.text = "Row number: $position"
+        positionTextView.text = "Phone Number: ${numbers.get(position)}"
+
+        val avatarImgView = rowMain.findViewById<ImageView>(R.id.avatarImg)
+        avatarImgView.setImageResource(R.drawable.profile_image)
 
         return rowMain
     }
+
 }
