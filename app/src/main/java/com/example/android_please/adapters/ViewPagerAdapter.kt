@@ -22,7 +22,7 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle, c
                 FirstFragment(mCon)
             }
             1->{
-                SecondFragment()
+                SecondFragment(mCon)
             }
             2->{
                 ThirdFragment()
