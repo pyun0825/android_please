@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <!--    for internet URL use  -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- for phone call -->
 
     <application
         android:allowBackup="true"

@@ -1,12 +1,17 @@
 package com.example.android_please.adapters
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.startActivity
 import com.example.android_please.R
 import org.json.JSONObject
 
@@ -59,6 +64,17 @@ class MyCustomAdapter(context: Context): BaseAdapter() {
 
         val avatarImgView = rowMain.findViewById<ImageView>(R.id.avatarImg)
         avatarImgView.setImageResource(R.drawable.profile_image)
+
+
+        var colItem = rowMain.findViewById<ConstraintLayout>(R.id.colItem)
+
+        colItem.setOnClickListener(View.OnClickListener {
+            val num = colItem.findViewById<TextView>(R.id.textView2)
+            val parsedNum = num.text.toString().replace("(.* )".toRegex(), "")
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.setData(Uri.parse("tel:"+parsedNum))
+            mContext.startActivity(intent)
+        })
 
         return rowMain
     }
