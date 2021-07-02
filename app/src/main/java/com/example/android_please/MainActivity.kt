@@ -25,10 +25,10 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(tabLayout, viewPager2){tab, position->
             when(position){
                 0->{
-                    tab.text="First"
+                    tab.text="Phone Book"
                 }
                 1->{
-                    tab.text="Second"
+                    tab.text="Gallery"
                 }
                 2->{
                     tab.text="Third"
