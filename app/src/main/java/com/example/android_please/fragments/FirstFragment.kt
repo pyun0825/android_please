@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -29,8 +30,17 @@ class FirstFragment(context: Context) : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         var RootView:View =  inflater.inflate(R.layout.fragment_first, container, false)
+
         val listView = RootView.findViewById<ListView>(R.id.main_listview)
         listView.adapter = MyCustomAdapter(mCon)
+
+        val diaglogBtn = RootView.findViewById<Button>(R.id.dialogBtn)
+        diaglogBtn.setOnClickListener {
+            var dialog = PhoneDialogFragment()
+
+            dialog.show(childFragmentManager, "PhoneDialog")
+        }
+
         return RootView
     }
 }

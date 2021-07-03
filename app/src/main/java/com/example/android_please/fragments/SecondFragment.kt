@@ -33,7 +33,7 @@ class SecondFragment(context: Context) : Fragment() {
         val cardTitles: Array<String> = resources.getStringArray(R.array.cardTitles)
         val cardImages: Array<String> = resources.getStringArray(R.array.cardImages)
 
-        val adapter = GridItemAdapter(cardTitles, cardImages)
+        val adapter = GridItemAdapter(cardTitles, cardImages, mCon)
         val gridLayout = GridLayoutManager(mCon, 2)
         val griditems = RootView.findViewById<RecyclerView>(R.id.griditems)
         griditems.layoutManager = gridLayout
