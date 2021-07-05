@@ -25,7 +25,7 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle, c
                 SecondFragment(mCon)
             }
             2->{
-                ThirdFragment()
+                ThirdFragment(mCon)
             }
             else->{
                 Fragment()
