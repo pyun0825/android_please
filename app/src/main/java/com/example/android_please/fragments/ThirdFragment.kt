@@ -1,6 +1,7 @@
 package com.example.android_please.fragments
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.service.autofill.FillEventHistory
 import androidx.fragment.app.Fragment
@@ -12,6 +13,8 @@ import android.widget.GridView
 import com.example.android_please.R
 import com.example.android_please.adapters.ViewPagerAdapter
 import com.example.android_please.adapters.todoGridAdapter
+import com.github.dhaval2404.colorpicker.ColorPickerDialog
+import com.github.dhaval2404.colorpicker.model.ColorShape
 import kotlinx.android.synthetic.main.fragment_third.*
 
 class ThirdFragment(context: Context) : Fragment() {
@@ -36,6 +39,19 @@ class ThirdFragment(context: Context) : Fragment() {
         }
         val gridView = RootView.findViewById<GridView>(R.id.gridView)
         gridView.adapter = adapter
+
+        val ColorButton = RootView.findViewById<Button>(R.id.bt_color)
+
+        ColorButton.setOnClickListener {
+            ColorPickerDialog
+                .Builder(requireActivity())
+                .setTitle("color")
+                .setColorShape(ColorShape.CIRCLE)
+                .setDefaultColor(R.color.white)
+                .setColorListener { color, colorHex ->
+                    RootView.setBackgroundColor(Color.parseColor(colorHex))
+                }.show()
+        }
         return RootView
     }
 

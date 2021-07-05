@@ -57,4 +57,37 @@ class DataBaseHandler(var context: Context): SQLiteOpenHelper(context, DATABASE_
         }
         return dateCountArray
     }
+
+    fun todoList(date: String?): ArrayList<ArrayList<Any>> {
+        var date = date
+
+        var dateTodos = arrayListOf<ArrayList<Any>>()
+        val db = this.writableDatabase
+        var query = "SELECT * FROM ${TABLE_NAME} WHERE ${COL_DATE} LIKE '%${date}%';"
+        var c = db.rawQuery(query, null)
+        while(c.moveToNext()){
+            dateTodos.add(arrayListOf(c.getString(c.getColumnIndex(COL_TODO)), c.getInt(c.getColumnIndex(
+                COL_FIN)), c.getInt(c.getColumnIndex(COL_ID))))
+        }
+        return dateTodos
+    }
+
+    fun changeChecked(id:Int, checked: Int){
+        var id = id
+        var checked = checked
+        val db = this.writableDatabase
+        var query ="UPDATE ${TABLE_NAME} SET ${COL_FIN} = ${checked} WHERE ${COL_ID} = ${id};"
+        var c = db.rawQuery(query, null)
+        while(c.moveToNext());
+        return
+    }
+
+    fun deleteDate(date:String){
+        var date = date
+        val db = this.writableDatabase
+        var query = "DELETE FROM ${TABLE_NAME} WHERE ${COL_DATE} LIKE '%${date}%';"
+        var c = db.rawQuery(query, null)
+        while(c.moveToNext());
+        return
+    }
 }

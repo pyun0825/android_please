@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                     tab.text="Gallery"
                 }
                 2->{
-                    tab.text="Third"
+                    tab.text="ToDo"
                 }
             }
         }.attach()
