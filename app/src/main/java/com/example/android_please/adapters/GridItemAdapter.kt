@@ -6,6 +6,8 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
@@ -17,12 +19,13 @@ import com.example.android_please.fragments.PhoneDialogFragment
 import com.squareup.picasso.Picasso
 import kotlin.coroutines.coroutineContext
 
-class GridItemAdapter(val cardTitles: Array<String>, val cardImages: Array<String>, context: Context): RecyclerView.Adapter<GridItemAdapter.ViewHolder>() {
-
+class GridItemAdapter(val cardTitles: Array<String>, val cardImages: Array<String>, context: Context): RecyclerView.Adapter<GridItemAdapter.ViewHolder>()
+    {
 
     val mCon = context
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+
         val cardImage : ImageView = itemView.findViewById(R.id.cardImage)
         val cardTitle : TextView = itemView.findViewById(R.id.cardTitle)
     }
@@ -48,5 +51,4 @@ class GridItemAdapter(val cardTitles: Array<String>, val cardImages: Array<Strin
     override fun getItemCount(): Int {
         return cardTitles.size
     }
-
 }
