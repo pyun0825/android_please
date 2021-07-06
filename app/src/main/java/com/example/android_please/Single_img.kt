@@ -20,6 +20,5 @@ class Single_img : AppCompatActivity() {
         cancel_button.setOnClickListener {
             finish()
         }
-
     }
 }
