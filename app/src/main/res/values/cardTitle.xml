@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="cardTitles">
-        <item>First Item</item>
-        <item>Sec Item</item>
-        <item>Third Item</item>
-        <item>First Item</item>
-        <item>Sec Item</item>
-        <item>Third Item</item>
-        <item>First Item</item>
-        <item>Sec Item</item>
-        <item>Third Item</item>
-        <item>First Item</item>
-        <item>Sec Item</item>
-        <item>Third Item</item>
-        <item>First Item</item>
-        <item>Sec Item</item>
-        <item>Third Item</item>
-        <item>First Item</item>
-        <item>Sec Item</item>
-        <item>Third Item</item>
-        <item>First Item</item>
-        <item>Sec Item</item>
-        <item>Third Item</item>
+        <item>Ocean</item>
+        <item>Deer</item>
+        <item>Children</item>
+        <item>Scarf</item>
+        <item>Mountain</item>
+        <item>Food</item>
+        <item>Sofa</item>
+        <item>Head</item>
+        <item>Book</item>
+        <item>Boat</item>
+        <item>Grass</item>
+        <item>Car</item>
+        <item>Blind</item>
+        <item>Lake</item>
+        <item>Red Mount.</item>
+        <item>Forest</item>
+        <item>Road</item>
+        <item>Sky</item>
+        <item>Squirrel</item>
+        <item>Fog</item>
+        <item>Aurora</item>
     </string-array>
 </resources>

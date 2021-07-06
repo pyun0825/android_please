@@ -33,14 +33,6 @@ class FirstFragment(context: Context) : Fragment() {
 
         val listView = RootView.findViewById<ListView>(R.id.main_listview)
         listView.adapter = MyCustomAdapter(mCon)
-
-        val diaglogBtn = RootView.findViewById<Button>(R.id.dialogBtn)
-        diaglogBtn.setOnClickListener {
-            var dialog = PhoneDialogFragment()
-
-            dialog.show(childFragmentManager, "PhoneDialog")
-        }
-
         return RootView
     }
 }
