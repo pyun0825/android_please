@@ -30,7 +30,6 @@ class DetailLVAdaper(date: String?, var context: Context): BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val detailItem = LayoutInflater.from(parent?.context).inflate(R.layout.detail_lv_item, parent, false)
-
         val checkBox = detailItem.findViewById<CheckBox>(R.id.cb_todo)
         val textView = detailItem.findViewById<TextView>(R.id.tv_detail_todo)
 

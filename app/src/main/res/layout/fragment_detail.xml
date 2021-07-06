@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     tools:context=".fragments.DetailFragment">
 
@@ -23,19 +24,29 @@
         android:id="@+id/lv_detail_todos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp">
 
     </ListView>
+
+    <ListView
+        android:id="@+id/lv_detail_links"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginBottom="16dp"
+        android:background = "@drawable/card_edge"/>
 
     <Button
         android:id="@+id/bt_detail_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Back"
         android:textColor="#FFFFFF"
-        app:backgroundTint="#00BCD4"
-        android:layout_gravity="center"/>
+        app:backgroundTint="#00BCD4" />
 </LinearLayout>

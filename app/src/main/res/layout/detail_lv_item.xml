@@ -27,4 +27,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/cb_todo"
         app:layout_constraintStart_toEndOf="@+id/cb_todo"
         app:layout_constraintTop_toTopOf="@+id/cb_todo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

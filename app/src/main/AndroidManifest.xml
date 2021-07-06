@@ -2,10 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android_please">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <!--    for internet URL use  -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- for internet URL use -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <!-- for phone call -->
 
     <application
         android:allowBackup="true"
@@ -14,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_please">
+        <activity android:name=".Single_img"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".fragments.DetailFragment"/>
+        <activity android:name=".fragments.DetailFragment" />
     </application>
 
 </manifest>
