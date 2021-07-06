@@ -5,6 +5,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -12,12 +14,13 @@ import com.example.android_please.R
 import com.example.android_please.Single_img
 import com.squareup.picasso.Picasso
 
-class GridItemAdapter(val cardTitles: Array<String>, val cardImages: Array<String>, context: Context): RecyclerView.Adapter<GridItemAdapter.ViewHolder>() {
-
+class GridItemAdapter(val cardTitles: Array<String>, val cardImages: Array<String>, context: Context): RecyclerView.Adapter<GridItemAdapter.ViewHolder>()
+    {
 
     val mCon = context
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+
         val cardImage : ImageView = itemView.findViewById(R.id.cardImage)
         val cardTitle : TextView = itemView.findViewById(R.id.cardTitle)
     }
@@ -43,5 +46,4 @@ class GridItemAdapter(val cardTitles: Array<String>, val cardImages: Array<Strin
     override fun getItemCount(): Int {
         return cardTitles.size
     }
-
 }
