@@ -45,7 +45,7 @@ class ToDoFragment(context: Context, var adapter: todoGridAdapter) : DialogFragm
 
 
             var listener = DatePickerDialog.OnDateSetListener{ _, i, i2, i3 ->
-                et_date.setText("${i}-${i2}-${i3}")
+                et_date.setText("${i}-${i2+1}-${i3}")
             }
 
             var picker = DatePickerDialog(mCon, listener, year, month, day)

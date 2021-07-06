@@ -38,8 +38,10 @@ class todoGridAdapter(var context: Context): BaseAdapter() {
         var todoView = inflater.inflate(R.layout.to_do_card, null)
         var db = DataBaseHandler(context)
         var dateList = db.dateList()
+        var finCount = db.getFinCount(dateList[position].get(0).toString())
         todoView.tv_date.text = dateList[position].get(0).toString()
-        todoView.tv_numtodo.text = "ToDos: "+dateList[position].get(1).toString()
+        todoView.tv_numtodo.text = "Todos: "+dateList[position].get(1).toString()
+        todoView.tv_numfin.text = "Finished: "+finCount
         todoView.setOnClickListener {
             val intent = Intent(context, DetailFragment::class.java)
             intent.putExtra("date", dateList[position].get(0).toString())

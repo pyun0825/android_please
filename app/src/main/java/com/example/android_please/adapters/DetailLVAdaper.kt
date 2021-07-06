@@ -1,6 +1,7 @@
 package com.example.android_please.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,6 +39,7 @@ class DetailLVAdaper(date: String?, var context: Context): BaseAdapter() {
 
         if(checked){
             checkBox.isChecked = true
+//            textView.paint.isStrikeThruText = true
         }
         textView.text = text
 

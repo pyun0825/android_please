@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_third.*
 
 class ThirdFragment(context: Context) : Fragment() {
     var mCon = context
-
+    lateinit var adapter:todoGridAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -31,7 +31,7 @@ class ThirdFragment(context: Context) : Fragment() {
         // Inflate the layout for this fragment
         val RootView: View = inflater.inflate(R.layout.fragment_third, container, false)
         val btn = RootView.findViewById<Button>(R.id.bt_main)
-        var adapter = todoGridAdapter(mCon)
+        adapter = todoGridAdapter(mCon)
 
         btn.setOnClickListener {
             val dialog = ToDoFragment(mCon, adapter)
@@ -55,4 +55,8 @@ class ThirdFragment(context: Context) : Fragment() {
         return RootView
     }
 
+    override fun onResume() {
+        super.onResume()
+        adapter.notifyDataSetChanged()
+    }
 }

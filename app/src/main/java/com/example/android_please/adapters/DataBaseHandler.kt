@@ -72,6 +72,19 @@ class DataBaseHandler(var context: Context): SQLiteOpenHelper(context, DATABASE_
         return dateTodos
     }
 
+    fun getFinCount(date: String?): Int {
+        var count:Int = 0
+        var date = date
+        val db = this.writableDatabase
+        var query = "SELECT * FROM ${TABLE_NAME} WHERE ${COL_DATE} LIKE '%${date}%' AND ${
+            COL_FIN} = 1;"
+        var c = db.rawQuery(query, null)
+        while(c.moveToNext()){
+            count++
+        }
+        return count
+    }
+
     fun changeChecked(id:Int, checked: Int){
         var id = id
         var checked = checked
