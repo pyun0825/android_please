@@ -39,7 +39,18 @@
         android:layout_marginTop="16dp"
         android:layout_marginRight="26dp"
         android:layout_marginBottom="16dp"
-        android:background = "@drawable/card_edge"/>
+        android:background = "@drawable/card_edge">
+
+    </ListView>
+
+    <Button
+        android:id="@+id/bt_detail_add"
+        android:layout_width="65dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="Add Link"
+        android:textSize="12sp" />
 
     <Button
         android:id="@+id/bt_detail_back"

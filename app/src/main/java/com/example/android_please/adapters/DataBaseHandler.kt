@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
+import com.example.android_please.LinkItem
 import com.example.android_please.ToDoItem
 
 val DATABASE_NAME = "TodoDB"
@@ -14,6 +15,9 @@ val COL_TODO = "todo"
 val COL_ID = "id"
 val COL_FIN = "fin"
 
+val TABLE2_NAME = "Links"
+val COL_LINK = "link"
+
 class DataBaseHandler(var context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, 1) {
     override fun onCreate(db: SQLiteDatabase?) {
         val createTable = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME +" (" +
@@ -22,7 +26,13 @@ class DataBaseHandler(var context: Context): SQLiteOpenHelper(context, DATABASE_
                 COL_TODO + " TEXT," +
                 COL_FIN + " INTEGER);"
 
+        val createTable2 = "CREATE TABLE IF NOT EXISTS " + TABLE2_NAME +" (" +
+                COL_ID +" INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COL_DATE + " TEXT," +
+                COL_LINK + " TEXT);"
+
         db?.execSQL(createTable)
+        db?.execSQL(createTable2)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -103,4 +113,43 @@ class DataBaseHandler(var context: Context): SQLiteOpenHelper(context, DATABASE_
         while(c.moveToNext());
         return
     }
+
+    //TABLE2
+
+    fun insertLink(linkItem: LinkItem){
+        val db = this.writableDatabase
+        var cv = ContentValues()
+        cv.put(COL_DATE, linkItem.date)
+        cv.put(COL_LINK, linkItem.link)
+        var result = db.insert(TABLE2_NAME, null, cv)
+        if(result == -1.toLong()) {
+            Toast.makeText(context, "FAILED", Toast.LENGTH_LONG).show()
+            System.out.println("Failed")
+        }
+        else {
+            Toast.makeText(context, "INSERTED", Toast.LENGTH_LONG).show()
+            System.out.println("Inserted")
+        }
+    }
+
+    fun getLinks(date:String?): ArrayList<ArrayList<Any>> {
+        val db = this.writableDatabase
+        var linkArray = arrayListOf<ArrayList<Any>>()
+        var date = date
+        var query = "SELECT * FROM ${TABLE2_NAME} WHERE ${COL_DATE} LIKE '%${date}%';"
+        var c = db.rawQuery(query, null)
+        while(c.moveToNext()){
+            linkArray.add(arrayListOf(c.getString(c.getColumnIndex(COL_LINK)), c.getInt(c.getColumnIndex(COL_ID))))
+        }
+        return linkArray
+    }
+    fun deleteLink(id:Int){
+        var id = id
+        val db = this.writableDatabase
+        var query = "DELETE FROM ${TABLE2_NAME} WHERE ${COL_ID} = ${id};"
+        var c = db.rawQuery(query, null)
+        while(c.moveToNext());
+        return
+    }
+
 }
